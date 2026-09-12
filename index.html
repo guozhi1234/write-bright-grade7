@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#355cdb" />
+    <title>写作小宇宙 | 七年级英语作文指导</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="写作小宇宙首页">
+        <span class="brand-mark">W</span>
+        <span>写作小宇宙 <small>Write Bright</small></span>
+      </a>
+      <div class="topbar-tip"><span class="sparkle">✦</span> 每次写作，都是一次清楚地表达自己</div>
+      <button class="help-button" type="button" data-open-modal>AI 写作助手 <span>↗</span></button>
+    </header>
+
+    <main id="top" class="app-shell">
+      <aside class="sidebar" aria-label="单元导航">
+        <div class="sidebar-title">
+          <p>课本同步</p>
+          <h2>先选择课本</h2>
+        </div>
+        <div id="book-selector" class="book-selector" aria-label="课本选择">
+          <button class="book-button active" type="button" data-book="upper" aria-pressed="true"><strong>七年级上册</strong><small>3 个 Starter + 7 个 Unit</small></button>
+          <button class="book-button" type="button" data-book="lower" aria-pressed="false"><strong>七年级下册</strong><small>8 个 Unit</small></button>
+        </div>
+        <p id="book-unit-label" class="book-unit-label">七年级上册 · 选择单元</p>
+        <nav id="unit-nav" class="unit-nav"></nav>
+        <div class="sidebar-note">
+          <span>🌱</span>
+          <p>先学会说清楚，再学会写精彩。</p>
+        </div>
+      </aside>
+
+      <section class="content">
+        <section class="hero-card" aria-labelledby="unit-title">
+          <div class="hero-copy">
+            <p id="unit-kicker" class="kicker"></p>
+            <h1 id="unit-title"></h1>
+            <p id="unit-subtitle" class="hero-subtitle"></p>
+            <div id="hero-tags" class="hero-tags"></div>
+            <div class="hero-actions">
+              <button class="hero-primary" type="button" data-learning-entry="guided">跟着步骤学 <span>→</span></button>
+              <button class="hero-secondary" type="button" data-learning-entry="review">我已写完，拍照批改</button>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="planet">✎</div>
+            <span class="floating-star star-a">✦</span>
+            <span class="floating-star star-b">★</span>
+            <span class="floating-star star-c">✦</span>
+          </div>
+        </section>
+
+        <section class="progress-row" id="learning-bar" aria-label="写作步骤">
+          <div class="progress-intro"><strong id="learning-step-title">第 1 步：读懂题目</strong><span id="learning-step-hint">先确认写给谁、写什么、必须写什么。</span></div>
+          <div class="steps">
+            <button class="step active" type="button" data-learning-step="1">1 读题</button><i></i><button class="step" type="button" data-learning-step="2">2 搭架</button><i></i><button class="step" type="button" data-learning-step="3">3 仿写</button><i></i><button class="step" type="button" data-learning-step="4">4 独立写</button><i></i><button class="step" type="button" data-learning-step="5">5 批改</button>
+          </div>
+          <p id="resume-message" class="resume-message" aria-live="polite"></p>
+        </section>
+
+        <section class="teaching-section" data-learning-content="1">
+          <div class="section-heading">
+            <div><p class="kicker">THINK BEFORE WRITING</p><h2>先想清楚，再动笔</h2></div>
+            <p>每一步都有答案，写作就不再空白。</p>
+          </div>
+          <article class="question-panel panel">
+            <div class="teaching-title"><span class="icon-bubble green">?</span><div><p>审题四问</p><h3>先把题目读成自己的任务</h3></div></div>
+            <div id="question-grid" class="question-grid"></div>
+          </article>
+          <article class="ladder-panel panel">
+            <div class="ladder-title"><div><p class="kicker">SENTENCE LADDER</p><h3>一句话，也能一步步变精彩</h3></div><span id="ladder-note" class="ladder-note"></span></div>
+            <div id="sentence-ladder" class="sentence-ladder"></div>
+          </article>
+        </section>
+
+        <section class="guide-grid" data-learning-content="1">
+          <article class="panel task-panel">
+            <div class="panel-heading"><span class="icon-bubble peach">◎</span><div><p>第一步</p><h2>读懂写作任务</h2></div></div>
+            <p id="task-prompt" class="task-prompt"></p>
+            <div id="task-focus" class="focus-list"></div>
+          </article>
+          <article class="panel grammar-panel">
+            <div class="panel-heading"><span class="icon-bubble yellow">Aa</span><div><p>本单元关键</p><h2>语法小提醒</h2></div></div>
+            <div id="grammar-list" class="grammar-list"></div>
+            <p id="grammar-tip" class="grammar-tip"></p>
+          </article>
+        </section>
+
+        <section class="language-section" data-learning-content="2">
+          <div class="section-heading">
+            <div><p class="kicker">词句小帮手</p><h2>词句百宝箱</h2></div>
+            <p>不必背长句，选适合自己的句子来组合。</p>
+          </div>
+          <div class="language-grid">
+            <article class="panel word-panel">
+              <h3><span>01</span> 主题词汇</h3>
+              <div id="word-bank" class="word-bank"></div>
+            </article>
+            <article class="panel sentence-panel">
+              <h3><span>02</span> 万能句型</h3>
+              <div id="sentence-bank" class="sentence-bank"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="reference-section" data-learning-content="2">
+          <div class="section-heading">
+            <div><p class="kicker">本章写作参考</p><h2>语法和核心词汇</h2></div>
+            <p>写之前看一眼，用对本章学过的表达。</p>
+          </div>
+          <div class="reference-grid">
+            <article class="panel grammar-reference-card">
+              <h3><span>03</span> 本章语法</h3>
+              <div id="grammar-reference-list" class="grammar-reference-list"></div>
+            </article>
+            <article class="panel vocabulary-reference-card">
+              <h3><span>04</span> 核心词汇</h3>
+              <p>优先选会用、能写对的词；不必为了难词冒险。</p>
+              <div id="core-vocabulary-list" class="core-vocabulary-list"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="outline-panel panel" data-learning-content="2">
+          <div class="outline-heading">
+            <div class="panel-heading"><span class="icon-bubble blue">☰</span><div><p>第二步</p><h2>三段式写作地图</h2></div></div>
+            <button id="fill-draft" class="text-button" type="button">把提纲放进练习区 ↓</button>
+          </div>
+          <div id="outline-list" class="outline-list"></div>
+        </section>
+
+        <section class="sample-section" id="sample" data-learning-content="3">
+          <div class="section-heading sample-heading">
+            <div><p class="kicker">范文示范</p><h2>高分例文，读出亮点</h2></div>
+            <div class="sample-actions"><button id="copy-sample" class="text-button" type="button">复制例文</button><button id="use-sample" class="pill-button" type="button">试着仿写</button></div>
+          </div>
+          <article class="sample-card">
+            <div class="sample-meta"><span id="sample-level">七年级示范</span><span id="sample-range"></span></div>
+            <h3 id="sample-title"></h3>
+            <div id="sample-essay" class="sample-essay"></div>
+            <details class="translation"><summary>查看中文意思</summary><p id="sample-translation"></p></details>
+            <div class="highlight-box"><strong>为什么这篇写得好？</strong><ul id="highlight-list"></ul></div>
+          </article>
+          <article class="annotation-panel panel">
+            <div class="annotation-heading"><span class="icon-bubble green">✎</span><div><p>范文逐段教学批注</p><h3>每一段，都有自己的任务</h3></div></div>
+            <div id="annotation-list" class="annotation-list"></div>
+          </article>
+        </section>
+
+        <section class="studio-section" id="studio" data-learning-content="4">
+          <div class="studio-heading">
+            <div><p class="kicker">开始写作</p><h2>现在，轮到你写了</h2></div>
+            <p>写得不完美没关系，先写出来。</p>
+          </div>
+          <div class="studio-grid">
+            <article class="panel generator-panel">
+              <h3>✨ 写前素材采集卡</h3>
+              <p>先回答四个小问题，再把自己的素材变成英语写作提纲。</p>
+              <div id="material-fields" class="material-fields"></div>
+              <button id="make-plan" class="primary-button" type="button">生成我的专属提纲 <span>→</span></button>
+              <div id="personal-plan" class="personal-plan" aria-live="polite"></div>
+            </article>
+            <article class="writing-panel">
+              <div class="writing-topline"><span>我的草稿</span><span id="word-count">0 / 建议字数</span></div>
+              <textarea id="draft" spellcheck="true" placeholder="在这里写下你的英语作文……"></textarea>
+              <div class="writing-footer"><button id="basic-check" class="check-button" type="button">基础自检</button><span id="check-result" aria-live="polite">写完后，点击“基础自检”</span></div>
+            </article>
+          </div>
+          <div class="writing-coach">
+            <article class="goal-card">
+              <div><p class="kicker">WRITING CHECKPOINTS</p><h3>写中完成条</h3></div>
+              <p>每完成一个要点，就向一篇完整作文靠近一步。</p>
+              <div id="writing-goals" class="writing-goals"></div>
+            </article>
+            <article class="draft-version-card">
+              <div><p class="kicker">MY TWO DRAFTS</p><h3>初稿和二稿对比</h3></div>
+              <p>先保存初稿，修改后再比较；重点看自己改对了什么。</p>
+              <div class="version-actions"><button id="save-first-draft" class="check-button" type="button">保存为初稿</button><button id="compare-drafts" class="check-button" type="button" disabled>对比二稿</button></div>
+              <div id="draft-comparison" class="draft-comparison" aria-live="polite">保存初稿后，修改作文并点击“对比二稿”。</div>
+            </article>
+          </div>
+          <div class="checklist"><strong>交卷前看一看：</strong><div id="checklist-items"></div></div>
+        </section>
+
+        <section class="review-section" id="photo-review" data-learning-content="5">
+          <div class="section-heading review-heading">
+            <div><p class="kicker">拍照批改</p><h2>拍照上传，AI 帮你批改</h2></div>
+            <p>清楚、正面、光线充足的照片，批改会更准确。</p>
+          </div>
+          <div class="review-grid">
+            <article class="upload-card panel">
+              <div class="upload-title"><span class="icon-bubble purple">⌁</span><div><h3>上传作文照片</h3><p>支持 JPG、PNG、WEBP，建议一张完整作文页。</p></div></div>
+              <label class="upload-dropzone" for="essay-image">
+                <input id="essay-image" type="file" accept="image/jpeg,image/png,image/webp" />
+                <span class="upload-symbol">↑</span>
+                <strong>选择作文照片</strong>
+                <small>单张图片不超过 10 MB</small>
+              </label>
+              <div id="image-preview-wrap" class="image-preview-wrap" hidden>
+                <img id="image-preview" alt="待批改的作文照片预览" />
+                <button id="remove-image" type="button">移除照片</button>
+              </div>
+              <label class="consent-row"><input id="review-consent" type="checkbox" /><span>我已获得允许，并同意将这张作文照片发送给已配置的 AI 服务，仅用于本次批改。</span></label>
+              <button id="review-submit" class="primary-button review-submit" type="button" disabled>开始智能批改 <span>→</span></button>
+              <p id="review-status" class="review-status" aria-live="polite">上传照片并确认后即可开始。</p>
+            </article>
+            <article class="review-how panel">
+              <p class="kicker">会得到什么？</p>
+              <h3>像老师一样，先肯定，再进步</h3>
+              <ol>
+                <li><span>1</span><div><strong>识别作文</strong><p>先转写照片中的英文；看不清的地方会明确标注。</p></div></li>
+                <li><span>2</span><div><strong>按单元标准评分</strong><p>结合当前 Unit 的话题、词汇、语法和建议字数。</p></div></li>
+                <li><span>3</span><div><strong>逐处修改与升级</strong><p>给出可理解的原因和不超纲的改写版本。</p></div></li>
+              </ol>
+              <div class="privacy-note"><strong>隐私提示</strong><p>请勿上传包含姓名、电话、住址或其他敏感信息的照片。</p></div>
+            </article>
+          </div>
+          <article id="review-result" class="review-result panel" hidden aria-live="polite">
+            <div class="result-heading"><div><p class="kicker">YOUR REVIEW</p><h3>这次作文反馈</h3></div><span id="review-total" class="total-score">-- / 20</span></div>
+            <p id="review-summary" class="review-summary"></p>
+            <div class="result-columns">
+              <section><h4>值得表扬</h4><ul id="review-praise" class="praise-list"></ul></section>
+              <section><h4>识别到的作文</h4><p id="review-transcription" class="transcription"></p></section>
+            </div>
+            <div id="review-scores" class="score-grid"></div>
+            <section class="corrections"><h4>逐处修改</h4><div id="review-issues"></div></section>
+            <section class="improved-essay"><div><h4>七年级升级版</h4><p>保留你的意思，用本单元能学会的表达改得更清楚。</p></div><button id="use-improved" class="pill-button" type="button">放入我的草稿</button><pre id="review-improved"></pre></section>
+            <div class="next-practice"><strong>下一步练习：</strong><span id="review-next"></span></div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <footer>写作小宇宙 · 基于七年级英语教材主题设计 · 原创学习指导内容</footer>
+
+    <div id="ai-modal" class="modal-backdrop" hidden>
+      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" aria-label="关闭">×</button>
+        <span class="modal-icon">✦</span>
+        <h2 id="modal-title">AI 写作助手正在等你</h2>
+        <p>当前网页已提供离线提纲和范文。接入模型服务后，这里可以生成个性化范文、逐句批改和针对性练习。</p>
+        <div class="api-note"><strong>已预留接口</strong><code>POST /api/generate</code><span>可接入任意兼容的 AI 后端。</span></div>
+        <button class="primary-button modal-confirm" type="button">我知道了</button>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

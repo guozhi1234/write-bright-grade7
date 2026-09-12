@@ -5,6 +5,7 @@
   "installCommand": "npm install",
   "entry": "./esa-entry.mjs",
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    "notFoundStrategy": "singlePageApplication"
   }
 }

@@ -59,7 +59,7 @@ npm start
 
 ### ESA Functions & Pages
 
-仓库已包含 `esa.jsonc`，会在发布时运行 `npm run build`，将 `dist/` 作为静态资源，并使用 `esa-entry.mjs` 提供 `/api/review` 和 `/health`。在 ESA 控制台配置以下环境变量或 Secret：
+仓库已包含 `esa.jsonc`，会在发布时运行 `npm run build`，将 `dist/` 作为静态资源，并使用 `esa-entry.mjs` 提供 `/api/review` 和 `/health`。静态资源已配置单页应用兜底，浏览器访问首页或页面路径时不会被函数的 API 路由拦截。在 ESA 控制台配置以下环境变量或 Secret：
 
 - `DEEPSEEK_API_KEY`：必填，不要写入代码仓库。
 - `DEEPSEEK_MODEL`：可选，默认 `deepseek-flash`。

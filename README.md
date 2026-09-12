@@ -10,6 +10,14 @@
 
 仅浏览作文指导内容时，直接双击 `index.html` 即可打开。
 
+项目使用原生 HTML、CSS 和 JavaScript，不需要额外打包。发布前运行：
+
+```powershell
+npm run build
+```
+
+该命令会检查前端脚本和后端服务脚本的语法。
+
 拍照 AI 批改需要通过本地服务运行，并使用你自己的 DeepSeek API Key：
 
 ```powershell

@@ -1,0 +1,10 @@
+{
+  "name": "write-bright-grade7",
+  "description": "七年级英语作文指导与 DeepSeek 图片批改",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "entry": "./esa-entry.mjs",
+  "assets": {
+    "directory": "./dist"
+  }
+}

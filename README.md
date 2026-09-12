@@ -10,13 +10,13 @@
 
 仅浏览作文指导内容时，直接双击 `index.html` 即可打开。
 
-项目使用原生 HTML、CSS 和 JavaScript，不需要额外打包。发布前运行：
+项目使用原生 HTML、CSS 和 JavaScript。发布前运行：
 
 ```powershell
 npm run build
 ```
 
-该命令会检查前端脚本和后端服务脚本的语法。
+该命令会生成 `dist/` 静态资源，并检查前端、Node 服务和 ESA 函数脚本的语法。
 
 拍照 AI 批改需要通过本地服务运行，并使用你自己的 DeepSeek API Key：
 
@@ -56,6 +56,18 @@ npm start
 默认模型为 `deepseek-flash`，可通过 `.env` 中的 `DEEPSEEK_MODEL` 覆盖。返回内容固定为评分、批改条目和升级稿，且会限制在本单元词汇、语法和建议字数内。
 
 ## 阿里云部署
+
+### ESA Functions & Pages
+
+仓库已包含 `esa.jsonc`，会在发布时运行 `npm run build`，将 `dist/` 作为静态资源，并使用 `esa-entry.mjs` 提供 `/api/review` 和 `/health`。在 ESA 控制台配置以下环境变量或 Secret：
+
+- `DEEPSEEK_API_KEY`：必填，不要写入代码仓库。
+- `DEEPSEEK_MODEL`：可选，默认 `deepseek-flash`。
+- `DEEPSEEK_BASE_URL`：可选，默认 `https://api.deepseek.com`。
+
+配置后重新构建并发布版本。ESA 日志中的 `Assets directory not set` 和 `Function file not found` 应消失。
+
+### ECS 或普通 Node 服务
 
 1. 将项目上传到 ECS、轻量应用服务器或容器服务，并在服务器环境变量中设置 `DEEPSEEK_API_KEY`；生产环境不需要上传 `.env` 文件。
 2. 平台会自动提供 `PORT` 时无需手动指定；服务默认监听 `0.0.0.0`，可通过 `HOST` 覆盖。
